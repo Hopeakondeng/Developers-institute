@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  html {
+    font-family: "Noto Sans", sans-serif;
+  }
+  
+  h1 {
+    text-transform: uppercase;
+    color: green;
+    font-style: italic;
+    padding: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    
+  }
+  
+  nav {
+    text-align: center;
+  }
+  
+  nav ul li {
+      color: greenyellow;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 20px;
+    display: inline-block;
+    padding: 5px;
+  }
+  
+  nav ul li:hover {
+    cursor: pointer;
+  }
+  
+  .select {
+    font-weight: bold;
+  }
+  
+  footer {
+    position: static;
+    bottom: 0;
+    font-size: 18px;
+    margin: 5px;
+  }
+  
+  footer ul li{
+    display: inline-block;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  
+  footer ul li:hover {
+    cursor: pointer;
+  }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  p {
+      word-wrap: normal;
+    padding: 20px;
+    color: greenyellow;
+  }
+  
+body{
+    background-color: black;
+    background-image: url("avengerlogo.webp");
+} 
+footer {
+    color: whitesmoke;
+    position: static;
+    bottom: 0;
+    font-size: 18px;
+    margin: 5px;
+} 

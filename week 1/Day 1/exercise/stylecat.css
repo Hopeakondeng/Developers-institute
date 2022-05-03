@@ -1,0 +1,27 @@
+body{
+    background-color: bisque;
+}
+
+#catsenses{
+    text-indent: 2cm;
+    text-decoration: underline;
+}
+
+#media{
+    text-align: center;
+}
+
+img{
+    size: 500px;
+    margin-left: 400px;
+    border: 5px solid; color: orangered;
+}
+
+table, th, td {
+    border: 1px solid;
+  }
+
+  #tableheader{
+      text-align: center;
+      border: 2px solid; color: red;
+  }
