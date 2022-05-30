@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM Animations</title>
+        <style>
+            .bigsquare{
+                width: 300px;
+                height: 300px;
+                background-color: yellow;
+            }
+            .smallsquare{
+                width: 30px;
+                height: 30px;
+                background-color: red;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bigsquare"><div class="smallsquare"></div></div>
+        <button id="btn">Click me to move the red square</button>
+        <h1 style="display:none ;">The sales end in 10min ! </h1>
+
+        <img src="https://png.pngtree.com/element_pic/20/16/01/2756a8ddb305e6e.jpg" style="position: absolute;">
+        
+        <div id="element" draggable="true" ondragstart="start(event)" ondragend="end(event)">ELEMENT </div>
+
+        
+        <script>
+            //Functions to drag our text element
+            function start(event){
+                event.target.style.fontSize ='30px' //event.target is the HTML element where the event occurs
+                console.log(event.clientX, event.clientY); //we console.log the x and y coordinates of the element
+            }
+            let element = document.querySelector('#element')
+            function end(event){
+                //We get the x and y coordinates of where the element is drop
+                let x = event.clientX 
+                let y = event.clientY
+
+                element.style.background='crimson'               
+                element.style.position='absolute' //we need to fix the position property to absolute in order to use the left, top, bottom and right css properties
+                //Now we can change the left and top position properties to fix the element where it's drop
+                element.style.left = x+'px'  
+                element.style.top = y+'px'
+
+                event.target.style.fontSize ='20px'
+            }
+
+
+            //Exercise: Move the red square 
+            let btn = document.querySelector('#btn')
+            let t 
+            let square = document.querySelector('.smallsquare')
+
+            
+            btn.addEventListener('click', set)
+            function set(){
+                t=setInterval(move_square, 300) //Getting the value id number of the setInterval function to use it in the clearInterval
+            }
+            //Init the variable for the moves (an oblique movement is a right and down moves)
+            let move_right = 10
+            let move_down = 10
+            //Function to move the little square
+            let move_square =()=>{
+                //We change the left and top properties in order to move the element
+                square.style.left = move_right +'px'
+                square.style.top = move_down + 'px'
+                //We increase the moves variables
+                //Each time the function will be called thanks to setInterval, our moves will have a greater value
+                move_right+=10
+                move_down+=10
+                //We want to stop the red square when it reach the end of the yellow box
+                //yellow box is 300px so if the moves is near to 300 it means the red square reached the end of the yellow box
+                if(move_down>=280){
+                    clearInterval(t) //we stop the setInterval with the id number inside the t variable
+                }
+            }
+            //Showing an element after 5seconds
+            function display_banner(){
+                document.querySelector('h1').style.display = 'block'
+            }
+            setTimeout(display_banner, 5000)
+
+            //Exercise: move a train image to the right
+            let train = document.querySelector('img')
+            let move=50
+            let timer
+            function move_train(){
+                
+                train.style.left = move +'px'
+                move+=50
+                if(move > 1200){
+                    clearInterval(timer)
+                }
+            }
+            timer = setInterval(move_train, 500)
+
+
+        </script>
+    </body>
+</html>
